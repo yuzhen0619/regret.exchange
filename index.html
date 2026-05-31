@@ -4,12 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>遺憾交易所</title>
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'fvo4maz',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #f0ebe3;
-    font-family: 'Noto Serif TC', serif;
+    background: #f4e9d9;
+    font-family: 'ar-yuanb5std', 'Noto Serif TC', Georgia, serif;
+    color: #b69a88;
   }
 
   .image-section img {
@@ -19,237 +30,150 @@
     margin: 0 auto;
   }
 
-  /* ── 影片區塊 ── */
   .video-section {
-    background: linear-gradient(160deg, #e8ddd0 0%, #ddd0be 40%, #cfc0a8 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 72px 24px 80px;
-  }
-
-  /* 紋理疊加 */
-  .video-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='none'/%3E%3Ccircle cx='1' cy='1' r='0.6' fill='%23a08060' opacity='0.12'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
+    background: #f4e9d9;
+    padding: 24px 0 56px;
   }
 
   .video-section__inner {
-    position: relative;
-    z-index: 1;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 5%;
   }
 
-  /* 標題 */
   .video-section__heading {
-    text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+    border-top: 1px solid #c8b09a;
+    padding-top: 10px;
+    padding-left: 4px;
   }
 
   .video-section__heading h2 {
-    font-size: clamp(22px, 5vw, 32px);
-    color: #4a3728;
-    letter-spacing: 0.12em;
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: clamp(16px, 6vw, 22px);
+    color: #b69a88;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: 'ar-yuanb5std', sans-serif;
   }
 
-  .video-section__heading .sub {
-    font-size: 13px;
-    color: #7a6150;
-    letter-spacing: 0.2em;
-    margin-top: 6px;
-    text-transform: uppercase;
+  /* 中文部分：圓體 */
+  .video-section__heading h2 .zh {
+    font-family: 'ar-yuanb5std', 'Noto Serif TC', Georgia, serif;
   }
 
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 16px auto 0;
-    max-width: 280px;
+  /* 英文部分：同圓體 */
+  .video-section__heading h2 .en {
+    font-family: 'ar-yuanb5std', 'Noto Serif TC', Georgia, serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
   }
-  .divider span { flex: 1; height: 1px; background: #b8a090; }
-  .divider i { color: #b8a090; font-size: 10px; font-style: normal; }
 
-  /* 影片卡片 */
   .video-grid {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 20px;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 680px) {
     .video-grid {
       flex-direction: row;
       align-items: flex-start;
+      gap: 16px;
     }
-    .video-card.portrait  { flex: 0 0 220px; }
+    .video-card.portrait  { flex: 0 0 37%; }
     .video-card.landscape { flex: 1; }
   }
 
-  /* 直式 9:16 */
+  .video-card {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #d4bfae;
+    background: #f4e9d9;
+  }
+
   .video-card.portrait .video-card__embed {
     padding-top: 177.78%;
   }
 
-  .video-card {
-    background: #f5ede2;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 6px 24px rgba(80,55,35,0.13), 0 1px 4px rgba(80,55,35,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .video-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 36px rgba(80,55,35,0.18);
-  }
-
-  /* 嵌入影片：保持 16:9 */
   .video-card__embed {
     position: relative;
     width: 100%;
     padding-top: 56.25%;
-    background: #2a1f16;
+    background: #2a1e14;
   }
 
-  .video-card__embed iframe,
   .video-card__embed video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    border: none;
-  }
-
-  /* 佔位（尚未有 src 時顯示） */
-  .video-card__placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #2a1f16 0%, #3d2c1e 100%);
-    cursor: pointer;
-    gap: 12px;
-  }
-
-  .video-card__placeholder .play-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: rgba(240,235,227,0.15);
-    border: 2px solid rgba(240,235,227,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-  }
-  .video-card__placeholder:hover .play-btn {
-    background: rgba(240,235,227,0.25);
-  }
-  .video-card__placeholder .play-btn svg {
-    width: 22px;
-    height: 22px;
-    fill: #f0ebe3;
-    margin-left: 4px;
-  }
-  .video-card__placeholder .placeholder-label {
-    color: rgba(240,235,227,0.6);
-    font-size: 12px;
-    letter-spacing: 0.1em;
+    object-fit: cover;
   }
 
   .video-card__info {
-    padding: 18px 20px 20px;
-    border-top: 1px solid rgba(160,120,80,0.18);
+    padding: 10px 12px 12px;
   }
 
   .video-card__info h3 {
-    font-size: 15px;
-    color: #3d2c1e;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    margin-bottom: 6px;
+    font-family: 'ar-yuanb5std', 'Noto Serif TC', Georgia, serif;
+    font-size: 13px;
+    color: #b69a88;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
   }
 
   .video-card__info p {
-    font-size: 13px;
-    color: #7a6150;
+    font-family: 'ar-yuanb5std', 'Noto Serif TC', Georgia, serif;
+    font-size: 11.5px;
+    color: #c9ad9b;
     line-height: 1.7;
-    letter-spacing: 0.04em;
-  }
-
-  /* 單一大影片（如果只想放一個） */
-  .video-card.featured {
-    grid-column: 1 / -1;
-  }
-
-  /* 底部說明 */
-  .video-section__note {
-    margin-top: 36px;
-    text-align: center;
-    font-size: 12px;
-    color: #9a8070;
-    letter-spacing: 0.08em;
-    line-height: 2;
+    letter-spacing: 0.03em;
   }
 </style>
 </head>
 <body>
 
-<!-- 原圖 -->
 <div class="image-section">
   <img src="./p4.jpg" alt="遺憾交易所">
 </div>
 
-<!-- 影片區塊 -->
 <section class="video-section">
   <div class="video-section__inner">
-
+ 
     <div class="video-section__heading">
-      <h2>遊戲介紹影片</h2>
-      <p class="sub">Game Trailer &amp; Playthroughs</p>
-      <div class="divider"><span></span><i>✦</i><span></span></div>
+      <h2><span class="zh">桌遊影片</span><span class="en"> | Game Trailer &amp; Playthroughs</span></h2>
     </div>
-
+ 
     <div class="video-grid">
-
-      <!-- 影片 1：直式 9:16 -->
+ 
       <div class="video-card portrait">
         <div class="video-card__embed">
-          <video controls>
+          <video controls playsinline>
             <source src="./video1.mp4" type="video/mp4">
           </video>
         </div>
         <div class="video-card__info">
-          <h3>桌遊試玩 ── 終點站前的死亡列車</h3>
-          <p>試玩影片。</p>
+          <h3>試玩影片</h3>
+          <p>劇情1：終點站前的死亡列車。</p>
         </div>
       </div>
-
-      <!-- 影片 2：橫式 16:9 -->
+ 
       <div class="video-card landscape">
         <div class="video-card__embed">
-          <video controls>
+          <video controls playsinline>
             <source src="./video2.mp4" type="video/mp4">
           </video>
         </div>
         <div class="video-card__info">
-          <h3>桌遊規則介紹</h3>
-          <p>宣傳影片。</p>
+          <h3>宣傳影片</h3>
+          <p>桌遊規則介紹</p>
         </div>
       </div>
-
-    </div><!-- /video-grid -->
-
+ 
+    </div>
   </div>
 </section>
 
