@@ -82,15 +82,17 @@
       align-items: flex-start;
       gap: 16px;
     }
-    .video-card.portrait  { flex: 0 0 37%; }
-    .video-card.landscape { flex: 1; }
+  }
+
+  .video-card.portrait {
+    max-width: 360px;
   }
 
   .video-card {
     border-radius: 4px;
     overflow: hidden;
-    border: 1px solid #d4bfae;
-    background: #f4e9d9;
+    border: none;
+    background: transparent;
   }
 
   .video-card.portrait .video-card__embed {
